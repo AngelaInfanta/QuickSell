@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Board from "./Components/Board/Board";
 import "./App.css";
-//import Editable from "./Components/Editabled/Editable";
+import {FaRegCircle, FaRegTimesCircle, FaAdjust, FaPlusSquare, FaHistory, FaCheck } from "react-icons/fa";
 
 function App() {
 
@@ -43,7 +43,7 @@ useEffect(() => {
   return (
     <div className="app">
       <div className="app_nav">
-        <h1> Kanban Board </h1>
+        <h1> <FaCheck /> Kanban Board </h1>
       </div>
       <div className="app_boards_container">
         <div className="app_boards">
@@ -54,6 +54,12 @@ useEffect(() => {
           <Board
           key={Object.keys(item)}
           title={Object.keys(item)}
+          icon={Object.keys(item) == "Todo" ? (
+            <FaRegCircle />
+          ):(
+            Object.keys(item) == "In progress" ? (
+              <FaAdjust style={{color: "darkgoldenrod"}} />
+          ): Object.keys(item) == "Backlog" ? (<FaHistory />): (<div />))}
           length={Object.keys(item).length}
           board={item}
         />

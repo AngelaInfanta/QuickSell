@@ -1,43 +1,28 @@
 import React, { useState } from "react";
 import { MoreHorizontal } from "react-feather";
 import Card from "../Card/Card";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import {FaRegCircle, FaRegTimesCircle, FaPencilAlt, FaPlus, FaHistory, FaCheck } from "react-icons/fa";
 import "./Board.js";
 
-library.add(faUser);
 
 function Board(props) {
 
   const [showDropdown, setShowDropdown] = useState(props.title);
-  //console.log(props.board);
+  console.log(showDropdown);
   return (
-    <div className="board">
-      <div className="board_header">
-        <h3 className="board_header_title">      
-          {showDropdown === "Todo" ? <FontAwesomeIcon icon="faUser" />
-          : showDropdown === "In progress" ? (<FontAwesomeIcon icon="fa-solid fa-bars-progress" />)
-          : showDropdown === "Backlog" && (<FontAwesomeIcon icon="fa-solid fa-clock" />)}
-          {props.title}
-          &emsp;
-          &emsp;
-          <MoreHorizontal />
-        </h3>
-
-      </div>
-      <div className="board_cards custom-scroll">     
+     <div style={{width: '90%', padding: 30}}> 
+          <h3>{props.icon}&nbsp; {showDropdown}
+          <FaPlus style={{color: "gray", marginLeft: '35%'}} size={15}/>
+          <MoreHorizontal style={{color: "gray", marginLeft: '5%'}} size={15}/></h3>
         {props?.board?.Todo?.map((item) => (
           <Card
             key={item.id}
             card={item}
-            boardId={props.board.id}
           />
         ))}
         {props?.board?.['In progress']?.map((item) => (
           <Card
             key={item.id}
-            icon={<FontAwesomeIcon icon="fa-solid fa-bars-progress" />}
             card={item}
             boardId={props.board.id}
           />
@@ -45,7 +30,6 @@ function Board(props) {
         {props?.board?.Backlog?.map((item) => (
           <Card
             key={item.id}
-            icon={<FontAwesomeIcon icon="fa-solid fa-clock" />}
             card={item}
             boardId={props.board.id}
           />
@@ -53,7 +37,6 @@ function Board(props) {
         {props?.board?.Done?.map((item) => (
           <Card
             key={item.id}
-            icon={<FontAwesomeIcon icon="fa-solid fa-check" />}
             card={item}
             boardId={props.board.id}
           />
@@ -61,13 +44,11 @@ function Board(props) {
         {props?.board?.Cancelled?.map((item) => (
           <Card
             key={item.id}
-            icon={<FontAwesomeIcon icon="fa-solid fa-ban" />}
             card={item}
             boardId={props.board.id}
           />
         ))}       
       </div>
-    </div>
   );
 }
 

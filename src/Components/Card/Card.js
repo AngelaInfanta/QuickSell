@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CheckSquare, Clock, MoreHorizontal } from "react-feather";
 import "./Card.css";
 import CardInfo from "./CardInfo/CardInfo";
+import {FaRegCircle, FaCircle, FaPencilAlt, FaPlusSquare, FaHistory, FaCheck } from "react-icons/fa";
 
 function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -13,11 +14,13 @@ console.log(props);
     <>
     <div className="card">
 
-        <p>{id}</p>
+        <p style={{color: "gray"}}>{id}</p>
         <div className="card_title">
         <b>{title}</b>
         </div>
-        <i> {tag}</i> <br />
+        <MoreHorizontal style={{paddingRight: 5, justifyContent:"center"}} />
+
+        <FaCircle  style={{color: "gray", alignItems: "center"}} /> &nbsp;<text style={{color: "gray", alignItems: "center"}}> {tag}</text> <br />
      </div>
    </>
   );
