@@ -80,6 +80,7 @@ setValue2(e.target.value);
                 <Board
                 key={Object.keys(item)}
                 boardTitle="priority"
+                users={users}
                 status={status}
                 title={Object.keys(item)}
                 icon={Object.keys(item)[0] === 'No priority' ? (

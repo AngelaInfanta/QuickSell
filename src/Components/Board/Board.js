@@ -98,6 +98,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="priority"
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -107,6 +108,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="priority"
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -117,6 +119,7 @@ function Board(props) {
             key={item.id}
             cardTitle="priority"
             card={item}
+            avail={props?.users?.filter(a => a.id === item.userId)}
           />
           </>
         ))}
@@ -125,6 +128,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="priority"
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -134,6 +138,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="priority"
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>

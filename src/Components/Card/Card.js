@@ -62,7 +62,13 @@ function Card(props) {
      </div>)}  
      {props.cardTitle === "priority" && (
     <div className="card">
-        <p style={{color: "gray"}}>{props.card.id}</p>
+        <p style={{color: "gray"}}>{props.card.id}
+        {props.avail[0].available? (
+          <BsFillCheckCircleFill style={{marginLeft:250, marginRight:2, color: "green"}}/>
+        ) : (
+          <BsFillDashCircleFill style={{marginLeft:250, marginRight:2, color: "red"}}/>
+          )}
+        </p>
         <div className="card_title">
           {props.card.status === 'Todo' && (<FaRegCircle />)}
           {props.card.status === 'In progress' && (<FaAdjust style={{color: "darkgoldenrod"}} />)}
