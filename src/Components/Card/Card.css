@@ -4,6 +4,8 @@
   width: 90%;
   border-radius: 10px;
   padding: 20px;
+  margin: 5px;
+  background-color: #fff;
   }
   
 .card:hover {

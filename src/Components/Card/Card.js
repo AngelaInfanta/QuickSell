@@ -2,26 +2,46 @@ import React, { useState } from "react";
 import { CheckSquare, Clock, MoreHorizontal } from "react-feather";
 import "./Card.css";
 import CardInfo from "./CardInfo/CardInfo";
-import {FaRegCircle, FaCircle, FaPencilAlt, FaPlusSquare, FaHistory, FaCheck } from "react-icons/fa";
+import {FaRegCircle, FaCircle, FaAdjust, FaPlusSquare, FaHistory, FaSignal, FaCheck } from "react-icons/fa";
 
 function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
-console.log(props);
-  const { id, title, priority, tag, userId } = props.card;
-
+  console.log("props in card: ", props);
   return (
     <>
+    {props.cardTitle == "ticket" && (
     <div className="card">
-
-        <p style={{color: "gray"}}>{id}</p>
+        <p style={{color: "gray"}}>{props.card.id}</p>
         <div className="card_title">
-        <b>{title}</b>
+        <b>{props.card.title}</b>
         </div>
-        <MoreHorizontal style={{paddingRight: 5, justifyContent:"center"}} />
-
-        <FaCircle  style={{color: "gray", alignItems: "center"}} /> &nbsp;<text style={{color: "gray", alignItems: "center"}}> {tag}</text> <br />
-     </div>
+        {props.avail[0].available ? (
+        <MoreHorizontal style={{paddingRight: 5, justifyContent:"center", width: 25}} size={22} />
+        ): (
+          <FaSignal style={{paddingRight: 5, justifyContent:"center"}} size={20} />
+        )}        
+        <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.card.tag}</text> <br />
+     </div>)}
+     {props.cardTitle == "user" && (
+      <div className="card">
+        <p style={{ color: "gray" }}>{props.stat.id}</p>
+        <div className="card_title">
+          {props.stat.status === 'Todo' && (<FaRegCircle />)}
+          {props.stat.status === 'In progress' && (<FaAdjust style={{color: "darkgoldenrod"}} />)}
+          {props.stat.status === 'Backlog' && (<FaHistory />)}
+          {props.stat.status === 'Done' && (<FaCheck />)}
+          {props.stat.status === 'Cancelled' && (<FaRegCircle />)}
+          {' '}
+             <b> {props.stat.title}</b>
+        </div>
+        {props.card.available ? (
+        <MoreHorizontal style={{paddingRight: 5, justifyContent:"center", width: 25}} size={22} />
+        ): (
+          <FaSignal style={{paddingRight: 5, justifyContent:"center"}} size={20} />
+        )}        
+        <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.stat.tag}</text> <br />
+     </div>)}     
    </>
   );
 }
