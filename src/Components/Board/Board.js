@@ -2,6 +2,7 @@ import React from "react";
 import { MoreHorizontal } from "react-feather";
 import Card from "../Card/Card";
 import { FaPlus } from "react-icons/fa";
+import { BsFillCheckCircleFill, BsFillDashCircleFill  } from "react-icons/bs";
 import "./Board.js";
 
 
@@ -10,6 +11,7 @@ function Board(props) {
     <>
     {props.boardTitle === "ticket" && (
      <div style={{width: '400px'}}>
+        {console.log(props)}
           <h3>{props.icon}&nbsp; {props.title}
           <FaPlus style={{color: "gray", marginLeft: '200px'}} size={15}/>
           <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
@@ -67,9 +69,13 @@ function Board(props) {
       </div>
     )}
     {props.boardTitle === "user"  && (
-      <div style={{width: '350px'}}> 
-      
-        <h3>{props.icon}&nbsp; {props.title}
+      <div style={{width: '400px'}}> 
+      <h3>{props.user.available ? (
+          <BsFillCheckCircleFill  style={{marginLeft:10, marginRight:2, color: "green"}}/>
+        ) : (
+          <BsFillDashCircleFill  style={{marginLeft:10, marginRight:2, color: "red"}}/>
+          )}
+        {props.icon}&nbsp; {props.title}
           <FaPlus style={{color: "gray", marginLeft: '140px'}} size={15}/>
           <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
           {props?.status?.filter(a => a.userId === props.user.id).map((item) => (

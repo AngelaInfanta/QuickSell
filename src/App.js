@@ -58,12 +58,12 @@ setValue2(e.target.value);
           boardTitle="ticket"
           users={users}
           title={Object.keys(item)}
-          icon={Object.keys(item) === "Todo" ? (
-            <FaRegCircle />
+          icon={Object.keys(item)[0] === "Todo" ? (
+            <FaRegCircle style={{marginLeft:10}} />
           ):(
-            Object.keys(item) === "In progress" ? (
-              <FaAdjust style={{color: "darkgoldenrod"}} />
-          ): Object.keys(item) === "Backlog" ? (<FaHistory />): (<div />))}
+            Object.keys(item)[0] === "In progress" ? (
+              <FaAdjust style={{marginLeft:10, color: "darkgoldenrod"}} />
+          ): Object.keys(item)[0] === "Backlog" ? (<FaHistory style={{marginLeft:10}} />): (<div />))}
           board={item}
         />
           ))) : value1 === "User" && value2 === "None" ? (
