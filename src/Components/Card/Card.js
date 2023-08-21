@@ -1,7 +1,8 @@
 import React from "react";
 import {MoreHorizontal } from "react-feather";
 import "./Card.css";
-import {FaRegCircle, FaCircle, FaAdjust, FaHistory, FaSignal, FaCheck } from "react-icons/fa";
+import {FaRegCircle, FaCircle, FaAdjust, FaHistory, FaSignal, FaCheck,  FaExclamationCircle } from "react-icons/fa";
+import { FcLowPriority,FcMediumPriority, FcHighPriority } from "react-icons/fc";
 
 function Card(props) {
   return (
@@ -40,7 +41,6 @@ function Card(props) {
      </div>)}  
      {props.cardTitle === "priority" && (
     <div className="card">
-      {console.log(props)}
         <p style={{color: "gray"}}>{props.card.id}</p>
         <div className="card_title">
           {props.card.status === 'Todo' && (<FaRegCircle />)}

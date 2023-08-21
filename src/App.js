@@ -26,7 +26,6 @@ setValue1(e.target.value);
 const handleChange2 = (e) => {
 setValue2(e.target.value);
 };
-console.log(priority);
 
   return (
     <div className="app">
@@ -83,17 +82,15 @@ console.log(priority);
                 boardTitle="priority"
                 status={status}
                 title={Object.keys(item)}
-                icon={Object.keys(item) === 'No priority' ? (
+                icon={Object.keys(item)[0] === 'No priority' ? (
                   <>
-                  {console.log("aaaaa", Object.keys(item))}
-                  <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/>
+                  <MoreHorizontal style={{color: "gray", marginLeft: 10}} size={20}/>
                   </>
                 ):(
-                  Object.keys(item) === 'Low' ? (
-                    <FcLowPriority />
-                ): Object.keys(item) === 'Medium' ? (<FcMediumPriority />
-                ): Object.keys(item) === 'High' ? (<FaExclamationCircle />
-                ): Object.keys(item) === "Urgent" ? (<FcHighPriority />
+                  Object.keys(item)[0] === 'Low' ? (<FcLowPriority style={{marginLeft: 10}} />
+                ): Object.keys(item)[0] === 'Medium' ? ( <FcMediumPriority style={{marginLeft: 10}}/>
+                ): Object.keys(item)[0] === 'High' ? (<FaExclamationCircle style={{marginLeft: 10}} />
+                ): Object.keys(item)[0] === "Urgent" ? (<FcHighPriority style={{marginLeft: 10}} />
                 ): (<div />))}
                 priority={item}
               />

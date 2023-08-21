@@ -85,8 +85,8 @@ function Board(props) {
      {props.boardTitle === "priority"  && (
       <div style={{width: '400px'}}> 
         <h3>{props.icon}&nbsp; {props.title}
-          <FaPlus style={{color: "gray", marginLeft: '140px'}} size={15}/>
-          <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
+          <FaPlus style={{color: "gray", marginLeft: '170px'}} size={15}/>
+          <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={20}/></h3>
           {props?.priority?.["No priority"]?.map((item) => (
             <>      
           <Card
