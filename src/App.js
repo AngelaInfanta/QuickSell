@@ -94,12 +94,12 @@ console.log(statusData);
           boardTitle="ticket"
           users={users}
           title={Object.keys(item)}
-          icon={Object.keys(item) == "Todo" ? (
+          icon={Object.keys(item) === "Todo" ? (
             <FaRegCircle />
           ):(
-            Object.keys(item) == "In progress" ? (
+            Object.keys(item) === "In progress" ? (
               <FaAdjust style={{color: "darkgoldenrod"}} />
-          ): Object.keys(item) == "Backlog" ? (<FaHistory />): (<div />))}
+          ): Object.keys(item) === "Backlog" ? (<FaHistory />): (<div />))}
           length={Object.keys(item).length}
           board={item}
         />

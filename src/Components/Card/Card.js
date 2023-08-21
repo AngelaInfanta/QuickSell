@@ -1,16 +1,13 @@
-import React, { useState } from "react";
-import { CheckSquare, Clock, MoreHorizontal } from "react-feather";
+import React from "react";
+import {MoreHorizontal } from "react-feather";
 import "./Card.css";
-import CardInfo from "./CardInfo/CardInfo";
-import {FaRegCircle, FaCircle, FaAdjust, FaPlusSquare, FaHistory, FaSignal, FaCheck } from "react-icons/fa";
+import {FaRegCircle, FaCircle, FaAdjust, FaHistory, FaSignal, FaCheck } from "react-icons/fa";
 
 function Card(props) {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   console.log("props in card: ", props);
   return (
     <>
-    {props.cardTitle == "ticket" && (
+    {props.cardTitle === "ticket" && (
     <div className="card">
         <p style={{color: "gray"}}>{props.card.id}</p>
         <div className="card_title">
@@ -23,7 +20,7 @@ function Card(props) {
         )}        
         <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.card.tag}</text> <br />
      </div>)}
-     {props.cardTitle == "user" && (
+     {props.cardTitle === "user" && (
       <div className="card">
         <p style={{ color: "gray" }}>{props.stat.id}</p>
         <div className="card_title">

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { MoreHorizontal } from "react-feather";
 import Card from "../Card/Card";
-import {FaRegCircle, FaRegTimesCircle, FaPencilAlt, FaPlus, FaHistory, FaCheck } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import "./Board.js";
 
 
@@ -19,7 +19,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="ticket"
-            avail={props?.users?.filter(a => a.id == item.userId)}
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -29,7 +29,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="ticket"
-            avail={props?.users?.filter(a => a.id == item.userId)}
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -39,7 +39,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="ticket"
-            avail={props?.users?.filter(a => a.id == item.userId)}
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -49,7 +49,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="ticket"
-            avail={props?.users?.filter(a => a.id == item.userId)}
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -60,7 +60,7 @@ function Board(props) {
           <Card
             key={item.id}
             cardTitle="ticket"
-            avail={props?.users?.filter(a => a.id == item.userId)}
+            avail={props?.users?.filter(a => a.id === item.userId)}
             card={item}
           />
           </>
@@ -73,7 +73,7 @@ function Board(props) {
           <FaPlus style={{color: "gray", marginLeft: '140px'}} size={15}/>
           <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
           {console.log('props.status',props.status)}
-          {props?.status?.filter(a => a.userId == props.user.id).map((item) => (
+          {props?.status?.filter(a => a.userId === props.user.id).map((item) => (
           <Card
             key={props.user.id}
             cardTitle="user"
