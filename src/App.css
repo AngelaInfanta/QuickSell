@@ -76,7 +76,7 @@
 .drop-down {
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
   transition: 0.3s;
-  width: 250px;
+  width: 300px;
   background-color: #fff;
   flex-direction: column;
   border-radius: 10px;
@@ -88,11 +88,11 @@
 }
 
 .select {
-  width: 20;
+  width: 110px;
   background-color: #fff;
   border-color:#ccc;
   padding: 3px;
-  margin: 1px;
+  margin: 2px;
   flex-direction: column;
   border-width: 1px;
   border-radius: 5px;
