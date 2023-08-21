@@ -4,7 +4,6 @@ import "./Card.css";
 import {FaRegCircle, FaCircle, FaAdjust, FaHistory, FaSignal, FaCheck } from "react-icons/fa";
 
 function Card(props) {
-  console.log("props in card: ", props);
   return (
     <>
     {props.cardTitle === "ticket" && (

@@ -1,39 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Board from "./Components/Board/Board";
 import "./App.css";
 import {FaRegCircle, FaAdjust, FaAngleDown, FaHistory, FaSlidersH, FaAngleUp } from "react-icons/fa";
+import data from "./constants/statusData";
 
+const Udata = require('./constants/usersData.json');
+const stat = require('./constants/status.json');
 function App() {
-  useEffect(() => {
-    const url = "https://api.quicksell.co/v1/internal/frontend-assignment";
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-        setStatus(json.tickets);
-        setUsers(json.users);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-  
-    fetchData();
-  }, []);
-  const [status, setStatus] = useState(
-    JSON.parse(localStorage.getItem("prac-kanban"))
+  const [status, setStatus] = useState(stat);
+  const[statusData, setStatusData] = useState(data);
+  const [users, setUsers] = useState(Udata
   );
-  const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem("prac-kanban"))
-  );
-
-useEffect(() => {
-  localStorage.setItem("prac-kanban", JSON.stringify(status));
-}, [status]);
-useEffect(() => {
-localStorage.setItem("prac-kanban", JSON.stringify(users));
-}, [users]);
-
 const [value1, setValue1] = useState("Status");
 const [value2, setValue2] = useState("None");
 const [toggle, setToggle] = useState(false);
@@ -43,26 +20,6 @@ setValue1(e.target.value);
 const handleChange2 = (e) => {
 setValue2(e.target.value);
 };
-
-
-// Accepts the array and key
-const groupBy = (array, key) => {
-  // Return the end result
-  return array.reduce((result, currentValue) => {
-    // If an array already present for key, push it to the array. Else create an array and push the object
-    (result[currentValue[key]] = result[currentValue[key]] || []).push(
-      currentValue
-    );
-    // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
-    return result;
-  }, {}); // empty object is the initial value for result object
-};
-
-// Group by color as key to the person array
-const groupedByStatus = groupBy(status, 'status');
-console.log(groupedByStatus);
-const statusData = Object.entries(groupedByStatus).map(([key, value]) => ({[key]: value}));
-console.log(statusData);
   return (
     <div className="app">
       <div className="app_nav">
@@ -104,7 +61,7 @@ console.log(statusData);
           board={item}
         />
           ))) : value1 === "User" && value2 === "None" ? (
-        users?.map((item) => (
+            users?.map((item) => (
           <Board
           key={item.id}
           boardTitle="user"

@@ -24,7 +24,6 @@ function CardInfo(props) {
   const [values, setValues] = useState({
     ...props,
   });
-  console.log(values);
 
   return (
     <Modal onClose={props.onClose}>

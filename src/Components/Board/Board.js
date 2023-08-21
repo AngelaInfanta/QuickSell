@@ -6,7 +6,6 @@ import "./Board.js";
 
 
 function Board(props) {
-  console.log("props in Board: ", props)
   return (
     <>
     {props.boardTitle === "ticket" && (
@@ -72,7 +71,6 @@ function Board(props) {
         <h3>{props.icon}&nbsp; {props.title}
           <FaPlus style={{color: "gray", marginLeft: '140px'}} size={15}/>
           <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
-          {console.log('props.status',props.status)}
           {props?.status?.filter(a => a.userId === props.user.id).map((item) => (
           <Card
             key={props.user.id}
