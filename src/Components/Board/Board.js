@@ -83,12 +83,11 @@ function Board(props) {
     </div>
     )}
      {props.boardTitle === "priority"  && (
-      <div style={{width: '350px'}}> 
-      {console.log(props)}
+      <div style={{width: '400px'}}> 
         <h3>{props.icon}&nbsp; {props.title}
           <FaPlus style={{color: "gray", marginLeft: '140px'}} size={15}/>
           <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/></h3>
-          {props?.priority?.["No Priority"]?.map((item) => (
+          {props?.priority?.["No priority"]?.map((item) => (
             <>      
           <Card
             key={item.id}

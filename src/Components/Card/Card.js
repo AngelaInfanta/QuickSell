@@ -43,7 +43,7 @@ function Card(props) {
       {console.log(props)}
         <p style={{color: "gray"}}>{props.card.id}</p>
         <div className="card_title">
-        {props.card.status === 'Todo' && (<FaRegCircle />)}
+          {props.card.status === 'Todo' && (<FaRegCircle />)}
           {props.card.status === 'In progress' && (<FaAdjust style={{color: "darkgoldenrod"}} />)}
           {props.card.status === 'Backlog' && (<FaHistory />)}
           {props.card.status === 'Done' && (<FaCheck />)}
