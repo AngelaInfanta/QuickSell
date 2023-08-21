@@ -77,8 +77,7 @@ function Card(props) {
           {props.card.status === 'Cancelled' && (<FaRegCircle />)}
           {' '}
              <b> {props.card.title}</b>
-        </div>
-          <FaSignal style={{paddingRight: 5, justifyContent:"center"}} size={20} />      
+        </div>    
         <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.card.tag}</text> <br />
      </div>)}   
    </>
