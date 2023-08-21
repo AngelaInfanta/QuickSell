@@ -37,7 +37,23 @@ function Card(props) {
           <FaSignal style={{paddingRight: 5, justifyContent:"center"}} size={20} />
         )}        
         <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.stat.tag}</text> <br />
-     </div>)}     
+     </div>)}  
+     {props.cardTitle === "priority" && (
+    <div className="card">
+      {console.log(props)}
+        <p style={{color: "gray"}}>{props.card.id}</p>
+        <div className="card_title">
+        {props.card.status === 'Todo' && (<FaRegCircle />)}
+          {props.card.status === 'In progress' && (<FaAdjust style={{color: "darkgoldenrod"}} />)}
+          {props.card.status === 'Backlog' && (<FaHistory />)}
+          {props.card.status === 'Done' && (<FaCheck />)}
+          {props.card.status === 'Cancelled' && (<FaRegCircle />)}
+          {' '}
+             <b> {props.card.title}</b>
+        </div>
+          <FaSignal style={{paddingRight: 5, justifyContent:"center"}} size={20} />      
+        <FaCircle  style={{color: "gray", marginLeft: 10}} size={12} /> <text style={{color: "gray"}}> {props.card.tag}</text> <br />
+     </div>)}   
    </>
   );
 }

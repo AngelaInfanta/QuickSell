@@ -1,25 +1,33 @@
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import Board from "./Components/Board/Board";
 import "./App.css";
-import {FaRegCircle, FaAdjust, FaAngleDown, FaHistory, FaSlidersH, FaAngleUp } from "react-icons/fa";
+import { MoreHorizontal } from "react-feather";
+import {FaRegCircle, FaAdjust, FaAngleDown, FaHistory, FaExclamationCircle,  FaSlidersH, FaAngleUp } from "react-icons/fa";
+import { FcLowPriority,FcMediumPriority, FcHighPriority } from "react-icons/fc";
 import data from "./constants/statusData";
 
 const Udata = require('./constants/usersData.json');
 const stat = require('./constants/status.json');
+const prior = require('./constants/priority.json');
+
 function App() {
+
   const [status, setStatus] = useState(stat);
   const[statusData, setStatusData] = useState(data);
-  const [users, setUsers] = useState(Udata
-  );
-const [value1, setValue1] = useState("Status");
-const [value2, setValue2] = useState("None");
-const [toggle, setToggle] = useState(false);
+  const [users, setUsers] = useState(Udata);
+  const [priority, setPriority] = useState(prior);
+
+  const [value1, setValue1] = useState("Status");
+  const [value2, setValue2] = useState("None");
+  const [toggle, setToggle] = useState(false);
 const handleChange1 = (e) => {
 setValue1(e.target.value);
 };
 const handleChange2 = (e) => {
 setValue2(e.target.value);
 };
+console.log(priority[0]);
+
   return (
     <div className="app">
       <div className="app_nav">
@@ -57,7 +65,6 @@ setValue2(e.target.value);
             Object.keys(item) === "In progress" ? (
               <FaAdjust style={{color: "darkgoldenrod"}} />
           ): Object.keys(item) === "Backlog" ? (<FaHistory />): (<div />))}
-          length={Object.keys(item).length}
           board={item}
         />
           ))) : value1 === "User" && value2 === "None" ? (
@@ -69,12 +76,28 @@ setValue2(e.target.value);
           title={item.name}
           user={item}
         />
-          ))) : (
-            value2 === "Priority" ? (
-              <p>{`urgent, medium, no need dikhao`}</p>
+          ))) : value2 === "Priority" ? (
+              priority?.map((item) => (
+                <Board
+                key={Object.keys(item)}
+                boardTitle="priority"
+                status={status}
+                title={Object.keys(item)}
+                icon={Object.keys(item) === "No priority" ? (
+                  <MoreHorizontal style={{color: "gray", marginLeft: '5px'}} size={15}/>
+                ):(
+                  Object.keys(item) === "Low" ? (
+                    <FcLowPriority />
+                ): Object.keys(item) === "Medium" ? (<FcMediumPriority />
+                ): Object.keys(item) === "High" ? (<FaExclamationCircle />
+                ): Object.keys(item) === "Urgent" ? (<FcHighPriority />
+                ):( <div />))}
+                priority={item}
+              />
+              ))
               ) : (
-                <br />
-              ))}
+                <div />
+              )}
          </div>
       </div>          
     </div>
