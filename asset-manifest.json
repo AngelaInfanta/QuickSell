@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/QuickSell/static/css/main.073c9b0a.css",
-    "main.js": "/QuickSell/static/js/main.2a70897d.js",
-    "static/js/787.e2c074ff.chunk.js": "/QuickSell/static/js/787.e2c074ff.chunk.js",
-    "static/media/logo.svg": "/QuickSell/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/QuickSell/static/css/main.60f1681e.css",
+    "main.js": "/QuickSell/static/js/main.e3b1c979.js",
     "index.html": "/QuickSell/index.html",
-    "main.073c9b0a.css.map": "/QuickSell/static/css/main.073c9b0a.css.map",
-    "main.2a70897d.js.map": "/QuickSell/static/js/main.2a70897d.js.map",
-    "787.e2c074ff.chunk.js.map": "/QuickSell/static/js/787.e2c074ff.chunk.js.map"
+    "main.60f1681e.css.map": "/QuickSell/static/css/main.60f1681e.css.map",
+    "main.e3b1c979.js.map": "/QuickSell/static/js/main.e3b1c979.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.2a70897d.js"
+    "static/css/main.60f1681e.css",
+    "static/js/main.e3b1c979.js"
   ]
 }
